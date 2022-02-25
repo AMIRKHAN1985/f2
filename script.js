@@ -375,17 +375,20 @@ a<b`,
     },
     {
         numberQuestion: 8,
-        question: `What will be the output of below Python code?`,
-        code:`tupl=("annie","hena","sid")
+        question: `What will be the output of following Python code?`,
+        code:`def tuple_indexing(tup):
+    tup[1] = 800
+    return tup
 
-print(tupl[-3:0])`,
+aTuple = (100, 200, 300, 400, 500)
+print(tuple_indexing(aTuple))`,
         imgSrc : "q8.png",
-        correctAnswer: "B) "+"()",
+        correctAnswer: "A) "+"Nothing, it will cause an error.",
         answer: [
-            "A) "+"("annie")",
-            "B) "+"()",
-            "C) "+"None",
-            "D) "+"Error as slicing is not possible in tuple."
+            "A) "+"Nothing, it will cause an error.",
+            "B) "+"(100, 800, 200, 300, 400, 500)",
+            "C) "+"(800, 100, 200, 300, 400, 500)",
+            "D) "+"(100, 200, 800, 300, 400, 500)"
         ]
     },
     {
