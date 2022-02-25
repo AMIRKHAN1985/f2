@@ -268,247 +268,154 @@ defaultInterval()
 var questions = [
     {
         numberQuestion: 1,
-        question: `Consider the input_linked_list:
-input_linked_list: 1->4->9->16
-What will be the value of the elements in the input_linked_list after the function fun() 
-is invoked by passing the head of the input_linked_list as an argument?`,
-        code:`def fun(head):
-        next_node = head.get_next()
-        while(head!=None and next_node != None):
-            head.set_data(head.get_data()+next_node.get_data())
-            head = head.get_next()
-            next_node = head.get_next()
-            if(next_node != None):
-                head.set_data(head.get_data()+next_node.get_data())
-     
-    Note: Order of displaying the elements is from head to tail.`,
+        question: `What will be the output of the following Python code?`,
+        code:`import collections
+a=collections.namedtuple('a',['i','j'])
+obj=a(i=4,j=7)
+print(obj)`,
         imgSrc : "q1.png",
-        correctAnswer: "C) "+"5 22 41 16",
+        correctAnswer: "A) "+"a(i=4, j=7)",
         answer: [
-            "A) "+"5 13 25 16",
-            "B) "+"27 22 41 57",
-            "C) "+"5 22 41 16",
-            "D) "+"5 22 41 57"
+            "A) "+"a(i=4, j=7)",
+            "B) "+"obj(i=4, j=7)",
+            "C) "+"(4,7)",
+            "D) "+"An exception is thrown"
         ]
     },
     {
         numberQuestion: 2,
-        question: `What is the output of following function when head node of following linked list is passed as input?
-        1->2->3->4->5`,
-        code:`def fun(head):
-        if(head==None):
-            return
-        if head.get_next().get_next()!= None:
-            print(head.get_data()," ", end='')
-            fun(head.get_next())
-        print(head.get_data()," ",end='')`,
+        question: `What will be the output of the following code snippet?`,
+        code:`init_tuple_a = '1', '2'
+init_tuple_b = ('3', '4')
+
+print (init_tuple_a + init_tuple_b)`,
         imgSrc : "q2.png",
-        correctAnswer: "B) "+"1 2 3 4 3 2 1",
+        correctAnswer: "B) "+"(‘1’, ‘2’, ‘3’, ‘4’)",
         answer: [
-            "A) "+"1 2 3 4 3 2",
-            "B) "+"1 2 3 4 3 2 1",
-            "C) "+"1 2 3 4",
-            "D) "+"1 2 3 4 4 3 2"
+            "A) "+"(1, 2, 3, 4)",
+            "B) "+"(‘1’, ‘2’, ‘3’, ‘4’)",
+            "C) "+"[‘1’, ‘2’, ‘3’, ‘4’]",
+            "D) "+"None"
         ]
     },
     {
         numberQuestion: 3,
-        question: `What will be the order of elements in the linked list after line 19?`,
-        code:`def fun(prv,nxt,data):
-        if(nxt==None):
-            return
-        if(nxt.get_data()==data):
-            global sample
-            sample.add(data)
-            prv.set_next(nxt.get_next())
-            return
-        else:
-            fun(nxt,nxt.get_next(),data)
-     
-sample=LinkedList()
-sample.add(10)
-sample.add(20)
-sample.add(5)
-sample.add(55)
-sample.add(38)
-sample_head=sample.get_head()
-fun(sample_head, sample_head,5)`,
+        question: `What will be the output of the following code snippet?`,
+        code:`init_tuple_a = 1, 2
+init_tuple_b = (3, 4)
+
+[print(sum(x)) for x in [init_tuple_a + init_tuple_b]]`,
         imgSrc : "q3.png",
-        correctAnswer: "A) "+"10 20 55 38 5",
+        correctAnswer: "C) "+"10",
         answer: [
-            "A) "+"10 20 55 38 5",
-            "B) "+"10 20 55 5 38",
-            "C) "+"10 20 55 38 38",
-            "D) "+"10 20 5 55 38"
+            "A) "+"Nothing gets printed.",
+            "B) "+"4",
+            "C) "+"10",
+            "D) "+"TypeError: unsupported operand type"
         ]
     },
     {
         numberQuestion: 4,
-        question: `What does the below function using the Stack datastructure do?`,
-        code:`def fun(n):
-        stack = Stack(100)
-        while (n > 0):
-            stack.push(n%10)
-            n =int (n/10)
-        result=0
-        while (not stack.is_empty()):
-            result+=stack.pop()
-        return result`,
+        question: `What will be the output of the following code snippet?`,
+        code:`init_tuple = (1,) * 3
+
+init_tuple[0] = 2
+
+print(init_tuple)`,
         imgSrc : "q4.png",
-        correctAnswer: "A) "+"Takes a number 'n' as input and returns the sum of its digits",
+        correctAnswer: "D) "+"TypeError: ‘tuple’ object does not support item assignment",
         answer: [
-            "A) "+"Takes a number 'n' as input and returns the sum of its digits",
-            "B) "+"Takes a number 'n' as input and returns 0 if it is divisible by 10",
-            "C) "+"Takes a number 'n' as input and returns the sum of all its digits divisible by 10",
-            "D) "+"Takes a number 'n' as input and divides each digit of the number by 10 and returns the sum of result of each division operation"
+            "A) "+"(1, 1, 1)",
+            "B) "+"(2, 2, 2)",
+            "C) "+"(2, 1, 1)",
+            "D) "+"TypeError: ‘tuple’ object does not support item assignment"
         ]
     },
     {
         numberQuestion: 5,
-        question: `Consider Python code shown left:
-What will be the status of output_stack after execution of above code?
-Assumption: All the references to the necessary files are available
-Note: Consider that the elements of stack in the options are shown from top to bottom`,
-        code:`def process(input_stack);
-        output_stack=Stack(5)
-        count = 0
-        while(not input_stack.is_empty()):
-            temp=input_stack.pop()
-            for i in temp:
-                count += 1
-            output_stack.push(str(count)+temp)
-        return output_stack
-    
-input_stack=Stack(5)
-input_stack.push("India")
-input_stack.push("Australia")
-input_stack.push("England")
-input_stack.push("SouthAfrica")  
-process(input_stack).display()`,
+        question: `If a=(1,2,3,4), a[1:-1] is _________`,
+        code:``,
         imgSrc : "na.png",
-        correctAnswer: "D) "+"32India-->27Australia-->18England-->11SouthAfrica",
+        correctAnswer: "D) "+"(2,3)",
         answer: [
-            "A) "+"11SouthAfrica-->18England-->27Australia-->32India",
-            "B) "+"5India-->9Australia-->7England-->11SouthAfrica",
-            "C) "+"11SouthAfrica-->7England-->9Australia-->5India",
-            "D) "+"32India-->27Australia-->18England-->11SouthAfrica"
+            "A) "+"Error, tuple slicing doesn’t exist",
+            "B) "+"[2,3]",
+            "C) "+"(2,3,4)",
+            "D) "+"(2,3)"
         ]
     },
     {
         numberQuestion: 6,
-        question: `Number 14 needs to be searched using BINARY SEARCH in the following sorted list of numbers:
-
-1, 3, 7, 9, 14, 19, 45
-        
-How many comparisons will be required to conclude that the number 14 is found at 5th position?
-        
-Note: We have used integer division for finding the middle element and the index starts with 0 (zero)`,
-        code:``,
+        question: `What will be the output of the following Python code?`,
+        code:`a=(1,2,(4,5))
+b=(1,2,(3,4))
+a<b`,
         imgSrc : "na.png",
-        correctAnswer: "B) "+"3",
+        correctAnswer: "A) "+"False",
         answer: [
-            "A) "+"2",
-            "B) "+"3",
-            "C) "+"4",
-            "D) "+"1"
+            "A) "+"False",
+            "B) "+"True",
+            "C) "+"Error, < operator is not valid for tuples",
+            "D) "+"Error, < operator is valid for tuples but not if there are sub-tuples"
         ]
     },
     {
         numberQuestion: 7,
-        question: `Consider the following inputs:
-input_linked_list (Head to Tail): 1 -> 2 -> 5 -> 3
-input_stack (Top to Bottom): 4, 2, 5, 10
-What will be the content of Input_linked_list from head to tail and input_stack from top to bottom 
-after the execution of the function generate?
-Assumption: Stack and LinkedList classes, with the necessary methods, are available`,
-        code:`def generate (input_linked_list , input_stack):
-            temp= input_linked_list.get_head ( )
-            element=0
-            while(temp.get_next ( ) is not None):
-                temp.set_data (temp.get_data ( )+temp.get_next ( ). get_data ( )+element)
-                if temp.get_data ( ) %2 !=0:
-                    temp.set_data(temp.get_data ( ) +input_stack.pop ( ) )
-                    element=temp.get_data ( )
-                else:
-                    input_stack.push (element )
-                    element=temp.get_next ( ).get_data ( )
-                temp=temp.get_next ( )
-            temp.set_data(temp.get_data ( )+input_stack.pop ( ) `,
+        question: `What will be the output of the following Python code?`,
+        code:`t = (1, 2, 4, 3, 8, 9)
+[t[i] for i in range(0, len(t), 2)]`,
         imgSrc : "na.png",
-        correctAnswer: "B) "+"input_linked_list (Head to Tail): 7 -> 14 -> 20 -> 5 and input_stack (Top of Bottom): 5, 10",
+        correctAnswer: "C) "+"[1, 4, 8]",
         answer: [
-            "A) "+"input_linked_list (Head to Tail): 7 -> 14 -> 20 -> 5 and input_stack (Top of Bottom): 5, 10",
-            "B) "+"input_linked_list (Head to Tail): 5 -> 7 -> 10 -> 5 and input_stack (Top of Bottom): 2, 5, 10",
-            "C) "+"input_linked_list (Head to Tail): 7 -> 14 -> 20 -> 3 and input_stack (Top of Bottom): 5, 10",
-            "D) "+"input_linked_list (Head to Tail): 7 -> 14 -> 20 -> 5 and input_stack (Top of Bottom): 10"
+            "A) "+"[2, 3, 9]",
+            "B) "+"[1, 2, 4, 3, 8, 9]",
+            "C) "+"[1, 4, 8]",
+            "D) "+"(1, 4, 8)"
         ]
     },
     {
         numberQuestion: 8,
-        question: `Which of the following statements can replace Line1 and Line2 in the below Python code to get output as ‘kcjh’?`,
-        code:`def func1(st1):
-        stack1=Stack(len(st1))
-        result=""
-        for ch in st1:
-            if(ch!="a" and ch!="e" and ch!="i" and ch!="o" and ch!="u"):
-                #Line1
-            if(ch == "#"):
-                    #line2
-        while(not stack1.is_empty()): 
-              result+=stack1.pop( )
-         print ( result )
-str="hi##jack"
-func1 ( str )`,
+        question: `What will be the output of below Python code?`,
+        code:`tupl=("annie","hena","sid")
+
+print(tupl[-3:0])`,
         imgSrc : "q8.png",
-        correctAnswer: "C) "+"Line 1: stack1.push(ch) Line2: stack1.pop()",
+        correctAnswer: "B) "+"()",
         answer: [
-            "A) "+"Line 1: stack1.pop() Line2: stack1.push(ch)",
-            "B) "+"Line 1: stack1.push(ch) Line2: stack1.push(ch)",
-            "C) "+"Line 1: stack1.push(ch) Line2: stack1.pop()",
-            "D) "+"Line 1: stack1.pop() Line2: stack1.pop()"
+            "A) "+"("annie")",
+            "B) "+"()",
+            "C) "+"None",
+            "D) "+"Error as slicing is not possible in tuple."
         ]
     },
     {
         numberQuestion: 9,
-        question: `Consider the Hashing methods given in left:`,
-        code:`i)  h(key) = key%10
+        question: `What will be the output of below Python code?`,
+        code:`tupl=([2,3],"abc",0,9)
 
-ii) h(key) = key%25
-        
-iii) h(key) = key%50
-        
-Which of the hashing methods would NOT lead to collision when the following values are to be stored in the hash table?
-        
-80, 20, 35, 45, 25, 90`,
+tupl[0][1]=1
+
+print(tupl)`,
         imgSrc : "na.png",
-        correctAnswer: "A) "+"Only iii)",
+        correctAnswer: "C) "+"([2,1],"abc",0,9)",
         answer: [
-            "A) "+"Only iii)",
-            "B) "+"Both ii) and iii)",
-            "C) "+"Both i) and iii)",
-            "D) "+"All i), ii) and iii)"
+            "A) "+"([2,3],"abc",0,9)",
+            "B) "+"([1,3],"abc",0,9)",
+            "C) "+"([2,1],"abc",0,9)",
+            "D) "+"Error"
         ]
     },
     {
         numberQuestion: 10,
-        question: `Given the following linked list
-what  is the output of following python function when the head node of the given linked_list are passed as input.
-linked_list: 1->2->3->4->5
-Assumption: Linked List class , with the necessary methods, is available.`,
-        code:`def function(head):
-        if head is None:
-            return
-        if head.get_next().get_next() is not None:
-            print(head.get_data(),end=" ")
-            function(head.get_next())
-        print(head.get_data(),end=" ")`,
+        question: `Which of the following options will not result in an error when performed on tuples in Python where tupl=(5,2,7,0,3)?`,
+        code:``,
         imgSrc : "na.png",
-        correctAnswer: "B) "+"1 2 3 4 3 2 1",
+        correctAnswer: "C) "+"tupl1=tupl+tupl",
         answer: [
-            "A) "+"1 2 3 4 3 2",
-            "B) "+"1 2 3 4 3 2 1",
-            "C) "+"1 2 3 4",
-            "D) "+"1 2 3 4 4 3 2"
+            "A) "+"tupl[1]=2",
+            "B) "+"tupl.append(2)",
+            "C) "+"tupl1=tupl+tupl",
+            "D) "+"tupl.sort()"
         ]
     }
 ]
